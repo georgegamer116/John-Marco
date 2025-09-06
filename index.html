@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard v2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f6f9;
+    }
+    .sidebar {
+      width: 240px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: -240px;
+      background-color: #343a40;
+      color: #fff;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1050;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar a {
+      color: #c2c7d0;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .sidebar .submenu {
+      padding-left: 30px;
+      background-color: #3e444a;
+    }
+    .content {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s ease;
+    }
+    .content.shifted {
+      margin-left: 240px;
+    }
+    .card-icon {
+      font-size: 2rem;
+      padding: 15px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .progress {
+      height: 8px;
+    }
+    .stat-card {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <h5 class="text-center">AdminLTE 4</h5>
+  <a href="index.html"><i class="bi bi-house"></i> Dashboard</a>
+  
+  <a href="#catMenu" data-bs-toggle="collapse"><i class="bi bi-folder"></i> Category</a>
+  <div class="collapse submenu" id="catMenu">
+    <a href="#" id="addcategory">Add Category</a>
+    <a href="#" id="listofcategory">List of Category</a>
+  </div>
+  
+  <a href="#prodMenu" data-bs-toggle="collapse"><i class="bi bi-bag"></i> Product</a>
+  <div class="collapse submenu" id="prodMenu">
+    <a href="#" id="addproduct">Add Product</a>
+    <a href="#" id="listofproduct">List of Product</a>
+  </div>
+  
+  <a href="#" id="listofusers"><i class="bi bi-people"></i> List of Users</a>
+  <a href="#" id="orders"><i class="bi bi-card-list"></i> List of Orders</a>
+  <a href="#Popup" data-bs-toggle="collapse">Popup</a>
+  <div class="collapse submenu" id="Popup">
+    <a href="#" id="poppup">Add Popup</a>
+    <a href="#" id="listofpoppup">List of Popup</a>
+  </div>
+  <a href="#herosection" data-bs-toggle="collapse">herosection</a>
+  <div class="collapse submenu" id="herosection">
+    <a href="#" id="hero">Add herosection</a>
+    <a href="#" id="listofhero">List of herosection</a>
+  </div>
+  <a href="#gallery" data-bs-toggle="collapse">gallery</a>
+  <div class="collapse submenu" id="gallery">
+    <a href="#" id="gallery2">Add gallery</a>
+    <a href="#" id="list">List of gallery</a>
+  </div>
+  <a href="#offers" data-bs-toggle="collapse">offers</a>
+  <div class="collapse submenu" id="offers">
+    <a href="#" id="offer">Add offers</a>
+    <a href="#" id="listoffer">List of offers</a>
+  </div>
+</div>
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm fixed-top">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">Dashboard v2</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+            <button class="btn btn-outline-secondary me-2" id="sidebarToggle"><i class="bi bi-list"></i></button>
+      </ul>
+      <div class="d-flex align-items-center">
+        <img src="https://via.placeholder.com/30" class="rounded-circle me-2" alt="User">
+        <span>pintu bhai & krunal bhai</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Content -->
+<div class="content mt-5" id="mainContent">
+
+  <!-- Info Cards -->
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="card-icon bg-primary text-white"><i class="bi bi-gear"></i></div>
+        <h6 class="mt-2">Traffic</h6>
+        <p>10 %</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="card-icon bg-danger text-white"><i class="bi bi-hand-thumbs-up"></i></div>
+        <h6 class="mt-2">Likes</h6>
+        <p>41,410</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="card-icon bg-success text-white"><i class="bi bi-cart"></i></div>
+        <h6 class="mt-2">Sales</h6>
+        <p>760</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <div class="card-icon bg-warning text-white"><i class="bi bi-people"></i></div>
+        <h6 class="mt-2">New Members</h6>
+        <p>2,000</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Monthly Recap Report -->
+  <div class="card mt-4">
+    <div class="card-header">
+      <h5>Monthly Recap Report</h5>
+      <small>Sales: 1 Jan, 2023 - 30 Jul, 2023</small>
+    </div>
+    <div class="card-body">
+      <p><strong>Goal Completion</strong></p>
+      <p>Add Products to Cart <span class="float-end">160/200</span></p>
+      <div class="progress mb-3"><div class="progress-bar bg-primary" style="width:80%"></div></div>
+
+      <p>Complete Purchase <span class="float-end">310/400</span></p>
+      <div class="progress mb-3"><div class="progress-bar bg-danger" style="width:77.5%"></div></div>
+
+      <p>Visit Premium Page <span class="float-end">480/800</span></p>
+      <div class="progress mb-3"><div class="progress-bar bg-success" style="width:60%"></div></div>
+
+      <p>Send Inquiries <span class="float-end">250/500</span></p>
+      <div class="progress"><div class="progress-bar bg-warning" style="width:50%"></div></div>
+    </div>
+  </div>
+
+  <!-- Summary Stats -->
+  <div class="row g-3 mt-3">
+    <div class="col-md-3">
+      <div class="stat-card">
+        <p class="text-success"><i class="bi bi-arrow-up"></i> 17%</p>
+        <h5>$35,210.43</h5>
+        <small>TOTAL REVENUE</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <p class="text-info"><i class="bi bi-arrow-right"></i> 0%</p>
+        <h5>$10,390.90</h5>
+        <small>TOTAL COST</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <p class="text-success"><i class="bi bi-arrow-up"></i> 20%</p>
+        <h5>$24,813.53</h5>
+        <small>TOTAL PROFIT</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stat-card">
+        <p class="text-danger"><i class="bi bi-arrow-down"></i> 18%</p>
+        <h5>1200</h5>
+        <small>GOAL COMPLETIONS</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById("sidebarToggle").addEventListener("click", function() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("mainContent").classList.toggle("shifted");
+  });
+</script>
+
+<script>
+document.getElementById('addcategory').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/category';
+});
+document.getElementById('listofcategory').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofcategory';
+});
+document.getElementById('addproduct').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/addproduct';
+});
+document.getElementById('listofproduct').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofproduct';
+});
+document.getElementById('listofusers').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofusers';
+});
+document.getElementById('orders').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/orders';
+});
+
+document.getElementById('poppup').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/poppup';
+});
+
+document.getElementById('listofpoppup').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofpoppup';
+});
+document.getElementById('hero').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/hero';
+});
+document.getElementById('listofhero').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofhero';
+});
+document.getElementById('gallery2').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/gallery';
+});
+document.getElementById('list').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listofgallery';
+});
+document.getElementById('offer').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/offer';
+});
+document.getElementById('listoffer').addEventListener('click', () => {
+    window.location.href = 'http:\\localhost:3000/listoffer';
+});
+</script>
+</body>
+</html>
